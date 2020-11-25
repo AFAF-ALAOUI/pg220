@@ -1,9 +1,19 @@
-import java.util.Scanner;
 package game.player;
-public class Human extends Player{
+
+import game.Grid;
+
+public final class Human extends Player{
+
+    public Human(String name, int pawn) {
+        super(name, pawn);
+    }
+
+    public final void play(Grid grid){
 
 
-    public String play_human(){
+    }
+
+    /*public String play_human(){
         System.out.println("choose number of column");
 
         String number1;
@@ -11,7 +21,5 @@ public class Human extends Player{
         number1 = reader.nextLine();
         //System.out.println(number1);
         return number1;
-    }
-
-
+    }*/
 }

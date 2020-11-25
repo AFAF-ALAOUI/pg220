@@ -67,12 +67,27 @@ public class Grid {
         }
     }
 
-    
 
+    public void display(Grid grid) {
+        for (int i=1; i<grid.length; i++){
+            System.out.println(i );
+        }
+        for (int j=1; j<grid.height; j++){
+            for (int k=1; k < grid.length; k++){
+                switch (grid.grid[j][k]) {
+                    case empty:
+                        System.out.println(". ");
+                        break;
+                    case player1:
+                        System.out.println("x ");
+                        break;
+                    case player2:
+                        System.out.println("o ");
+                        break;
+                }
+                System.out.println("\n");
 
-
-
-
-
-
+            }
+        }
+    }
 }
