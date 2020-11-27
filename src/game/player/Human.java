@@ -1,6 +1,7 @@
 package game.player;
 
 import game.Grid;
+import main.Power4;
 
 public final class Human extends Player{
 
@@ -8,18 +9,11 @@ public final class Human extends Player{
         super(name, pawn);
     }
 
-    public final void play(Grid grid){
+    public final int play(Grid grid){
+        System.out.println(this.getName() + ", choose a column ");
 
+        int col = Power4.scanner.nextInt();
+        return col;
 
     }
-
-    /*public String play_human(){
-        System.out.println("choose number of column");
-
-        String number1;
-        Scanner reader = new Scanner(System.in);
-        number1 = reader.nextLine();
-        //System.out.println(number1);
-        return number1;
-    }*/
 }
