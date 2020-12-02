@@ -31,12 +31,8 @@ public class Game {
                 int col = game.players[i].play(game.grid);
                 game.grid.playColumn(game.players[i].getPawn(),col);
             }
-
-
         }
     }
-
-
 
 
 }

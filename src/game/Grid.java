@@ -69,10 +69,76 @@ public class Grid {
         int i = firstEmpty(column);
         if (i!= -1){
             this.grid[i][column-1]=player;
+            if(search4()){
+                System.out.print("Winner is " + player);
+            }
+        }
+        else{
+            System.out.print("MATCH NUL");
         }
     }
 
+    // Function that checks if 4 pawns are aligned in a lign or a colomn
+    // sligne: origine de la ligne
+    // dligne : déplacement de la ligne
+    public boolean search4aligned(int sligne,int scol,int dligne,int dcol){
+        int pawn = 0;
+        int cpt =0;
+        while( (sligne>=0) && (sligne<=height) && (scol>=0) && (scol<=length) ){
+            if(grid[sligne][scol] != pawn){
+                cpt =1; //reinitialisation du compteur
+                pawn = grid[sligne][scol];
+            }
+            else{
+                cpt++;
+            }
+            if((pawn!=0) && (cpt==4) ){
+                return true;
+            }
+            sligne +=dligne;
+            scol +=dcol;
+        }
+        return false;
+    }
 
+    // Function that checks if 4 pawns are aligned in the grid
+    public boolean search4(){
+        //Parcours de lignes
+        for(int ligne=0;ligne < height; ligne++){
+            if(search4aligned(ligne,0,1,0)){
+                return true;
+            }
+        }
+        //Parcours des colonnes
+        for(int col=0;col < length ;col++){
+            if(search4aligned(0,col,0,1)){
+                return true;
+            }
+        }
+        //parcours des diagonals par colonnes
+        for(int col=0;col < length ;col++){
+            //première diag
+            if(search4aligned(0,col,1,1)){
+                return true;
+            }
+            //deuxième diag
+            if(search4aligned(0,col,1,-1)){
+                return true;
+            }
+        }
+        //parcours des diagonals par lignes
+        for(int ligne=0;ligne < height; ligne++){
+            //première diag
+            if(search4aligned(ligne,0,1,1)){
+                return true;
+            }
+            //deuxième diag
+            if(search4aligned(ligne,0,1,-1)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 
