@@ -2,7 +2,7 @@ package game;
 
 public class Grid {
 
-    private final int empty = 0;
+    private final int EMPTY = 0;
     private final int player1 = 1;
     private final int player2 = 2;
 
@@ -49,34 +49,28 @@ public class Grid {
         grid = new int[height][length];
         for (int i=0; i<height; i++){
             for (int j=0; j<length; j++){
-                grid[i][j] = empty;
+                grid[i][j] = EMPTY;
             }
         }
 
     }
 
-    private int firstEmpty(int column){
-        for(int i=this.height-1; -1<i; i--){
-            if (this.grid[i][column] == 0){
-                return i;
-            }
-        }
-        return -1;
-    }
 
 
-    public void playColumn(int player,int column){
-        int i = firstEmpty(column);
-        if (i!= -1){
-            this.grid[i][column-1]=player;
-            if(search4()){
-                System.out.print("Winner is " + player);
-            }
+    public boolean playColumn(int player,int column){
+      for (int i = this.height-1; -1 < i; i--) {
+         if (this.grid[i][column-1] == EMPTY) {
+            this.grid[i][column-1] = player;
+            return true;
+          }
         }
-        else{
-            System.out.print("MATCH NUL");
-        }
-    }
+        return false;
+      }
+
+
+
+
+
 
     // Function that checks if 4 pawns are aligned in a lign or a colomn
     // sligne: origine de la ligne
@@ -140,5 +134,3 @@ public class Grid {
         return false;
     }
 }
-
-

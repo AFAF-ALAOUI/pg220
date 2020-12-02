@@ -23,6 +23,3 @@ public class Power4 {
     }
 
 }
-
-
-

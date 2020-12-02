@@ -24,7 +24,7 @@ public class Game {
     }
 
     public void startGame(Game game){
-
+        
         while(true) {
             for (int i=0; i<2;i++){
                 game.display.display(game.grid);

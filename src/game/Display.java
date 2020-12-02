@@ -1,7 +1,6 @@
 package game;
 
 public class Display {
-    protected Display display;
 
 
     public void display(Grid grid) {
@@ -24,10 +23,12 @@ public class Display {
                     case 2:
                         System.out.print("o ");
                         break;
+
                 }
 
 
             }
+
             System.out.println();
         }
     }
