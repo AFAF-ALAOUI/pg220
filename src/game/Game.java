@@ -45,8 +45,9 @@ public class Game {
                             endgame = true;
                             break;
                         }
-                        game.grid.initGrid(game.grid.getHeight(),game.grid.getLength());
+
                         System.out.println(players[i].getName()+" a gagné.Nouvelle manche");
+                        game.grid.initGrid(game.grid.getHeight(),game.grid.getLength());
                         break;
                     }
                 }

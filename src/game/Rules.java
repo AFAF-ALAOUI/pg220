@@ -10,7 +10,7 @@ public class Rules {
         int pawn = EMPTY;
         int cpt =0; //compteur
         int height = grid.getHeight();
-        int length = grid.getHeight();
+        int length = grid.getLength();
         while( (sligne>=0) && (sligne<height) && (scol>=0) && (scol<length) ){
             if(grid.getGrid()[sligne][scol] != pawn){
                 cpt =1; //reinitialisation du compteur
