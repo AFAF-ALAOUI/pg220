@@ -5,13 +5,19 @@ import game.player.Player;
 public class Game {
 
     public Grid grid;
+    public Rules rules;
+
     private Player[] players = new Player[2] ;
     protected Display display = new Display();
 
     public Game(Player player1, Player player2){
         setPlayers(player1,player2);
         setGrid();
+        setrules();
+    }
 
+    public void setrules(){
+        this.rules = new Rules();
     }
 
     public void setPlayers(Player player1, Player player2){
@@ -24,14 +30,28 @@ public class Game {
     }
 
     public void startGame(Game game){
-        
-        while(true) {
-            for (int i=0; i<2;i++){
+        int [] manches ={0,0}; //tableau des parties gagnées par les deux joueurs
+        boolean endgame = false;
+        while(endgame==false) {
+            for (int i = 0; i < 2; i++) {
                 game.display.display(game.grid);
                 int col = game.players[i].play(game.grid);
-                game.grid.playColumn(game.players[i].getPawn(),col);
+                if (game.grid.playColumn(game.players[i].getPawn(), col)) {
+                    if (rules.search4(game.grid)) {
+                        manches[i]++;
+                    }
+                    if(manches[i]==3){
+                        endgame = true;
+                        break;
+                    }
+                }
+                else {
+                    endgame = true;
+                    break;
+                }
             }
         }
+        System.out.print("Fin de partie");
     }
 
 

@@ -8,7 +8,6 @@ public class Display {
         for (int i=0; i<grid.getLength(); i++){
             System.out.print(i+1);
             System.out.print(" ");
-
         }
         System.out.println();
         for (int j=0; j<grid.getHeight(); j++){
@@ -23,12 +22,8 @@ public class Display {
                     case 2:
                         System.out.print("o ");
                         break;
-
                 }
-
-
             }
-
             System.out.println();
         }
     }
