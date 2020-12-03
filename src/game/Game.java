@@ -57,6 +57,7 @@ public class Game {
 
                         System.out.println(players[i].getName()+" a gagné.Nouvelle manche");
                         fileGame.charger("infos.txt",players[i].getName()+" a gagne");
+                        fileGame.charger("infos.txt","Manche commence ");
                         game.grid.initGrid(game.grid.getHeight(),game.grid.getLength());
                         break;
                     }
@@ -68,6 +69,7 @@ public class Game {
             }
         }
         System.out.println("Fin de partie");
+        fileGame.charger("infos.txt","Fin de partie");
     }
 
 
