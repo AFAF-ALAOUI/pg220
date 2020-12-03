@@ -4,11 +4,11 @@ import game.player.Player;
 
 public class Game {
 
-    public Grid grid;
-    public Rules rules;
+    private Grid grid;
+    private Rules rules;
 
     private Player[] players = new Player[2] ;
-    protected Display display = new Display();
+    private Display display = new Display();
 
     public Game(Player player1, Player player2){
         setPlayers(player1,player2);

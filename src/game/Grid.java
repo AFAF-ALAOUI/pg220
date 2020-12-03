@@ -6,9 +6,9 @@ public class Grid {
     private final int player1 = 1;
     private final int player2 = 2;
 
-    protected int height;
-    protected int length;
-    protected int[][] grid;
+    private int height;
+    private int length;
+    private int[][] grid;
 
 
     //const
