@@ -34,14 +34,19 @@ public class Game {
         boolean endgame = false;
         while(endgame==false) {
             for (int i = 0; i < 2; i++) {
+
                 game.display.display(game.grid);
                 int col = game.players[i].play(game.grid);
                 if (game.grid.playColumn(game.players[i].getPawn(), col)) {
                     if (rules.search4(game.grid)) {
                         manches[i]++;
-                    }
-                    if(manches[i]==3){
-                        endgame = true;
+                        game.display.display(game.grid);
+                        if(manches[i]==3){
+                            endgame = true;
+                            break;
+                        }
+                        game.grid.initGrid(game.grid.getHeight(),game.grid.getLength());
+                        System.out.println(players[i].getName()+" a gagné.Nouvelle manche");
                         break;
                     }
                 }
@@ -51,7 +56,7 @@ public class Game {
                 }
             }
         }
-        System.out.print("Fin de partie");
+        System.out.println("Fin de partie");
     }
 
 
