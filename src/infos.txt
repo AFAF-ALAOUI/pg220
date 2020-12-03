@@ -1,1 +1,28 @@
-hallo
+player1 est human aicha
+player2 est ia yakoubi
+Manche commence 
+aichajoue 1
+yakoubijoue 2
+aichajoue 1
+yakoubijoue 3
+aichajoue 1
+yakoubijoue 5
+aichajoue 1
+aicha a gagne
+aichajoue 2
+yakoubijoue 4
+aichajoue 3
+yakoubijoue 1
+aichajoue 3
+yakoubijoue 5
+aichajoue 3
+yakoubijoue 2
+aichajoue 3
+aicha a gagne
+aichajoue 4
+yakoubijoue 6
+aichajoue 4
+yakoubijoue 3
+aichajoue 4
+yakoubijoue 6
+aichajoue 4

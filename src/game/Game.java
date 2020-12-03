@@ -32,21 +32,31 @@ public class Game {
     public void startGame(Game game){
         int [] manches ={0,0}; //tableau des parties gagnées par les deux joueurs
         boolean endgame = false;
+        FileGame fileGame = new FileGame();
+        fileGame.charger("infos.txt","player1 est human "+players[0].getName());
+
+        fileGame.charger("infos.txt","player2 est ia "+players[1].getName());
+
+        fileGame.charger("infos.txt","Manche commence ");
         while(endgame==false) {
             for (int i = 0; i < 2; i++) {
 
                 game.display.display(game.grid);
                 int col = game.players[i].play(game.grid);
+
+                fileGame.charger("infos.txt",players[i].getName()+"joue "+col);
                 if (game.grid.playColumn(game.players[i].getPawn(), col)) {
                     if (rules.search4(game.grid)) {
                         manches[i]++;
                         game.display.display(game.grid);
+
                         if(manches[i]==3){
                             endgame = true;
                             break;
                         }
 
                         System.out.println(players[i].getName()+" a gagné.Nouvelle manche");
+                        fileGame.charger("infos.txt",players[i].getName()+" a gagne");
                         game.grid.initGrid(game.grid.getHeight(),game.grid.getLength());
                         break;
                     }

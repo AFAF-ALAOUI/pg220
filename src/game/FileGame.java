@@ -13,11 +13,14 @@ public class FileGame {
 
 
     public static void charger(String file,String historique) {
-        File fichier = new File(file);
+        //File fichier = new File(file);
 
-        try(BufferedWriter bufferedWriter=new BufferedWriter(new FileWriter(fichier)))
+        try(BufferedWriter bufferedWriter=new BufferedWriter(new FileWriter(file,true)))
         {
             bufferedWriter.write(historique);
+            //bufferedWriter.write(url+"\n");
+           bufferedWriter.newLine();
+
         }
         catch (IOException e)
         {
