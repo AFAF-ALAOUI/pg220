@@ -12,6 +12,7 @@ public abstract class Player {
         this.setPawn(pawn);
     }
 
+
     //setters
     public void setName(String name) {
         this.name = name;

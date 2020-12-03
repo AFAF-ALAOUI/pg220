@@ -1,34 +1,3 @@
-player1 est human aoch
-player2 est ia asa
+player1 est human aicha
+player2 est ia asjak
 Manche commence 
-aochjoue 1
-asajoue 4
-aochjoue 1
-asajoue 2
-aochjoue 1
-asajoue 2
-aochjoue 1
-Score1-0
-aoch a gagne
-Fin de partie
-aochjoue 1
-asajoue 6
-aochjoue 1
-asajoue 1
-aochjoue 2
-asajoue 2
-aochjoue 3
-asajoue 1
-aochjoue 4
-Score2-0
-aoch a gagne
-Fin de partie
-aochjoue 1
-asajoue 4
-aochjoue 1
-asajoue 2
-aochjoue 1
-asajoue 5
-aochjoue 1
-Score3-0
-Fin de partie

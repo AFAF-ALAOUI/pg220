@@ -1,42 +1,34 @@
-player1 est human aicha
-player2 est ia oumaima
+player1 est human aoch
+player2 est ia asa
 Manche commence 
-aichajoue 1
-oumaimajoue 5
-aichajoue 1
-oumaimajoue 5
-aichajoue 1
-oumaimajoue 6
-aichajoue 1
+aochjoue 1
+asajoue 4
+aochjoue 1
+asajoue 2
+aochjoue 1
+asajoue 2
+aochjoue 1
 Score1-0
-aicha a gagne
+aoch a gagne
 Fin de partie
-aichajoue 2
-oumaimajoue 1
-aichajoue 2
-oumaimajoue 2
-aichajoue 3
-oumaimajoue 5
-aichajoue 3
-oumaimajoue 1
-aichajoue 3
-oumaimajoue 6
-aichajoue 3
+aochjoue 1
+asajoue 6
+aochjoue 1
+asajoue 1
+aochjoue 2
+asajoue 2
+aochjoue 3
+asajoue 1
+aochjoue 4
 Score2-0
-aicha a gagne
+aoch a gagne
 Fin de partie
-aichajoue 4
-oumaimajoue 1
-aichajoue 4
-oumaimajoue 4
-aichajoue 3
-oumaimajoue 5
-aichajoue 3
-oumaimajoue 3
-aichajoue 2
-oumaimajoue 5
-aichajoue 2
-oumaimajoue 2
-aichajoue 1
+aochjoue 1
+asajoue 4
+aochjoue 1
+asajoue 2
+aochjoue 1
+asajoue 5
+aochjoue 1
 Score3-0
 Fin de partie
