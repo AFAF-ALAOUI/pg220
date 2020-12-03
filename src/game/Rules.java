@@ -31,8 +31,9 @@ public class Rules {
     // Function that checks if 4 pawns are aligned in the grid
     public boolean search4(Grid grid){
         int height = grid.getHeight();
-        int length = grid.getHeight();
+        int length = grid.getLength();
         //Parcours de lignes
+
         for(int ligne=0;ligne < height; ligne++){
             if(search4aligned(grid,ligne,0,0,1)){
                 return true;
