@@ -1,0 +1,42 @@
+player1 est human aicha
+player2 est ia oumaima
+Manche commence 
+aichajoue 1
+oumaimajoue 5
+aichajoue 1
+oumaimajoue 5
+aichajoue 1
+oumaimajoue 6
+aichajoue 1
+Score1-0
+aicha a gagne
+Fin de partie
+aichajoue 2
+oumaimajoue 1
+aichajoue 2
+oumaimajoue 2
+aichajoue 3
+oumaimajoue 5
+aichajoue 3
+oumaimajoue 1
+aichajoue 3
+oumaimajoue 6
+aichajoue 3
+Score2-0
+aicha a gagne
+Fin de partie
+aichajoue 4
+oumaimajoue 1
+aichajoue 4
+oumaimajoue 4
+aichajoue 3
+oumaimajoue 5
+aichajoue 3
+oumaimajoue 3
+aichajoue 2
+oumaimajoue 5
+aichajoue 2
+oumaimajoue 2
+aichajoue 1
+Score3-0
+Fin de partie
