@@ -3,8 +3,8 @@ package game;
 public class Grid {
 
     private final int EMPTY = 0;
-    private final int player1 = 1;
-    private final int player2 = 2;
+    private final int PLAYER1 = 1;
+    private final int PLAYER2 = 2;
 
     private int height;
     private int length;
@@ -13,23 +13,14 @@ public class Grid {
 
     //const
     public Grid(){
-        setHeight(6);
-        setLength(7);
+        this.height = 6;
+        this.length = 7;
         initGrid(6,7);
     }
     public Grid(int height, int length){
-        setHeight(height);
-        setLength(length);
-        initGrid(height,length);
-    }
-
-
-    //setters
-    public void setHeight(int height){
         this.height = height;
-    }
-    public void setLength(int length){
-        this.length = length;
+          this.length = length;
+        initGrid(height,length);
     }
 
     //getters
@@ -39,13 +30,13 @@ public class Grid {
     public int getLength() {
         return this.length;
     }
-    public int[][] getGrid() {
-        return this.grid;
+    int getGrid(int i, int j) {
+        return this.grid[i][j];
     }
 
 
     //
-    public void initGrid(int height,int length){
+    void initGrid(int height,int length){
         grid = new int[height][length];
         for (int i=0; i<height; i++){
             for (int j=0; j<length; j++){
@@ -57,7 +48,7 @@ public class Grid {
 
 
 
-    public boolean playColumn(int player,int column){
+    boolean playColumn(int player,int column){
       for (int i = this.height-1; -1 < i; i--) {
          if (this.grid[i][column-1] == EMPTY) {
             this.grid[i][column-1] = player;
@@ -67,5 +58,15 @@ public class Grid {
         return false;
       }
 
+    boolean fullGrid(){
+      for (int i=0; i<this.height; i++){
+          for (int j=0; j<this.length; j++){
+            if (this.grid[i][j] == EMPTY){
+              return false;
+            }
+          }
+        }
+    return true;
+  }
 
 }

@@ -11,68 +11,63 @@ public class Game {
     private Display display = new Display();
 
     public Game(Player player1, Player player2){
-        setPlayers(player1,player2);
-        setGrid();
-        setrules();
-    }
-
-    public void setrules(){
+        this.players[0] = player1;
+        this.players[1] = player2;
+        this.grid = new Grid();
         this.rules = new Rules();
     }
 
-    public void setPlayers(Player player1, Player player2){
-        this.players[0] = player1;
-        this.players[1] = player2;
-    }
 
-    public void setGrid(){
-        this.grid = new Grid();
-    }
 
-    public void startGame(Game game){
-        int [] manches ={0,0}; //tableau des parties gagnées par les deux joueurs
+
+    public void startGame(){
+        int [] manches ={0,0}; //table des parties gagnees par les deux joueurs
         boolean endgame = false;
         FileGame fileGame = new FileGame();
-        fileGame.charger("infos.txt","player1 est human "+players[0].getName(),false);
+        int j =0;
 
-        fileGame.charger("infos.txt","player2 est ia "+players[1].getName(),true);
+        fileGame.save("log.txt",this.players[0].serialization(),false);
 
-        fileGame.charger("infos.txt","Manche commence ",true);
+        fileGame.save("log.txt",this.players[1].serialization(),true);
+        fileGame.save("log.txt","Manche commence ",true);
+
         while(endgame==false) {
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 2; i++) { //(i+manches[0]+manches[1])%2 to altern the  player starting first
+                j=(i+manches[0]+manches[1])%2;
+                this.display.display(grid);
+                int col = this.players[j].play(grid);
 
-                game.display.display(game.grid);
-                int col = game.players[i].play(game.grid);
+                fileGame.save("log.txt",this.players[j].getName()+" joue "+col,true);
+                if (this.grid.playColumn(this.players[j].getPawn(), col)) {
+                    if (rules.search4(grid)) {
+                        manches[j]++;
+                        this.display.display(grid);
 
-                fileGame.charger("infos.txt",players[i].getName()+"joue "+col,true);
-                if (game.grid.playColumn(game.players[i].getPawn(), col)) {
-                    if (rules.search4(game.grid)) {
-                        manches[i]++;
-                        fileGame.charger("infos.txt","Score" +manches[0]+ "-"+manches[1],true);
-                        game.display.display(game.grid);
 
-                        if(manches[i]==3){
+                        if(manches[j]==3){
                             endgame = true;
                             break;
                         }
 
-                        System.out.println(players[i].getName()+" a gagné.Nouvelle manche");
-                        fileGame.charger("infos.txt",players[i].getName()+" a gagne",true);
-                        fileGame.charger("infos.txt","Fin de partie",true);
+                        System.out.println(players[j].getName()+" gagne.Nouvelle manche");
+                        fileGame.save("log.txt",players[j].getName()+" gagne",true);
+                        fileGame.save("log.txt","Score " +manches[0]+ "-"+manches[1],true);
+                        fileGame.save("log.txt","Manche commence ",true);
 
-                        game.grid.initGrid(game.grid.getHeight(),game.grid.getLength());
+                        this.grid.initGrid(this.grid.getHeight(),this.grid.getLength());
 
                         break;
                     }
                 }
-                else {
-                    endgame = true;
+                  else if (!(rules.search4(grid)) && grid.fullGrid()) {
+                    System.out.println("Match nul");
+                    fileGame.save("log.txt","Draw",true);
                     break;
-                }
+                 }
             }
         }
         System.out.println("Fin de partie");
-        fileGame.charger("infos.txt","Fin de partie",true);
+        fileGame.save("log.txt","Fin de partie",true);
     }
 
 

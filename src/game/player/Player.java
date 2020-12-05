@@ -8,19 +8,10 @@ public abstract class Player {
 
 
     public Player(String name, int pawn) {
-        this.setName(name);
-        this.setPawn(pawn);
-    }
-
-
-    //setters
-    public void setName(String name) {
         this.name = name;
-    }
-
-    public void setPawn(int pawn) {
         this.pawn = pawn;
     }
+
 
     //getters
     public String getName() {
@@ -33,6 +24,6 @@ public abstract class Player {
 
     public abstract int play(Grid grid);
 
+    public abstract String serialization();
+
 }
-
-

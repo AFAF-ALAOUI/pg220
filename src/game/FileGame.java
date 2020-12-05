@@ -12,12 +12,12 @@ public class FileGame {
     //BufferedReader(new FileReader("Historique.txt"));
 
 
-    public static void charger(String file,String historique,boolean type) { //type:faux ou vrai
+     static void save(String file,String historique,boolean type) { //type:faux ou vrai
         //File fichier = new File(file);
 
         try(BufferedWriter bufferedWriter=new BufferedWriter(new FileWriter(file,type)))
         {
-            bufferedWriter.write(historique);
+           bufferedWriter.write(historique);
             //bufferedWriter.write(url+"\n");
            bufferedWriter.newLine();
 

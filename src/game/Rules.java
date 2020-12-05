@@ -12,9 +12,9 @@ public class Rules {
         int height = grid.getHeight();
         int length = grid.getLength();
         while( (sligne>=0) && (sligne<height) && (scol>=0) && (scol<length) ){
-            if(grid.getGrid()[sligne][scol] != pawn){
+            if(grid.getGrid(sligne,scol) != pawn){
                 cpt =1; //reinitialisation du compteur
-                pawn = grid.getGrid()[sligne][scol];
+                pawn = grid.getGrid(sligne,scol);
             }
             else{
                 cpt++;
@@ -29,7 +29,7 @@ public class Rules {
     }
 
     // Function that checks if 4 pawns are aligned in the grid
-    public boolean search4(Grid grid){
+     boolean search4(Grid grid){
         int height = grid.getHeight();
         int length = grid.getLength();
         //Parcours de lignes

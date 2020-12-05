@@ -15,4 +15,8 @@ public final class ArtificialIntel extends Player {
         return col;
 
     }
+
+    public final String serialization(){
+      return String.format("joueur %d est ia %s",this.getPawn(),this.getName());
+    }
 }

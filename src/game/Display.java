@@ -3,7 +3,7 @@ package game;
 public class Display {
 
 
-    public void display(Grid grid) {
+     void display(Grid grid) {
 
         for (int i=0; i<grid.getLength(); i++){
             System.out.print(i+1);
@@ -12,7 +12,7 @@ public class Display {
         System.out.println();
         for (int j=0; j<grid.getHeight(); j++){
             for (int k=0; k < grid.getLength(); k++){
-                switch (grid.getGrid()[j][k]) {
+                switch (grid.getGrid(j,k)) {
                     case 0:
                         System.out.print(". ");
                         break;
