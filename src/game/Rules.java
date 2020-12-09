@@ -5,7 +5,7 @@ public class Rules {
 
     // Function that checks if 4 pawns are aligned in a lign or a colomn
     // sligne: origine de la ligne
-    // dligne : déplacement de la ligne
+    // dligne : deplacement de la ligne
     private boolean search4aligned(Grid grid,int sligne,int scol,int dligne,int dcol){
         int pawn = EMPTY;
         int cpt =0; //compteur

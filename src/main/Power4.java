@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Power4 {
 
-    public static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("joueur1?");
