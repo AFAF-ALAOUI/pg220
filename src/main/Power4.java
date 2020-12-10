@@ -20,7 +20,7 @@ public class Power4 {
     }
 
     public static void main(String[] args) {
-        boolean cont =false;
+        boolean alias =true;
     do {
         try {
             System.out.println("joueur1?");
@@ -47,9 +47,9 @@ public class Power4 {
 
         } catch (SetAliasException e) {
             System.out.println(e);
-            cont = true;
+            alias = false;
         }
-    }while(cont = true);
+    }while(alias ==false);
     }
 
     }
