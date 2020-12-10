@@ -1,6 +1,6 @@
 package game;
 
-public class SetAliasException extends RuntimeException{
+public class SetAliasException extends Exception{
     private String str;
 
     public String getString(){

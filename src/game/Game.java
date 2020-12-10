@@ -18,8 +18,6 @@ public class Game {
     }
 
 
-
-
     public void startGame(){
         int col;
         int [] manches ={0,0}; //initialisation de la table des parties gagnees par les deux joueurs
