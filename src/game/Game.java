@@ -68,6 +68,7 @@ public class Game {
                     }
                 } catch(HumanPlayIntException | HumanPlayStrException e){
                     System.out.println(e);
+                    i--; //Player will try again
                 }
             }
         }
