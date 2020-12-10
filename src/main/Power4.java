@@ -21,15 +21,28 @@ public class Power4 {
 
     public static void main(String[] args) {
         boolean alias =true;
+        String concurent1 = null;
+        String name1 = null;
+        String concurent2 = null;
+        String name2 = null;
     do {
         try {
             System.out.println("joueur1?");
-            String concurent1 = scannerconc();
-            String name1 = scanner.next();
-
-            System.out.println("joueur2?");
-            String concurent2 = scannerconc();
-            String name2 = scanner.next();
+            concurent1 = scannerconc();
+            name1 = scanner.next();
+        } catch (SetAliasException e) {
+            System.out.println(e);
+        }
+    } while(concurent1 == null);
+        do {
+            try {
+                System.out.println("joueur2?");
+                concurent2 = scannerconc();
+                name2 = scanner.next();
+            } catch (SetAliasException e) {
+                System.out.println(e);
+            }
+        }while(concurent2 == null);
 
             if ((concurent1.equals("human")) && (concurent2.equals("human"))) {
                 Game game = new Game(new Human(name1, 1), new Human(name2, 2));
@@ -44,12 +57,6 @@ public class Power4 {
                 Game game = new Game(new ArtificialIntel(name1, 1), new ArtificialIntel(name2, 2));
                 game.startGame();
             }
-
-        } catch (SetAliasException e) {
-            System.out.println(e);
-            alias = false;
-        }
-    }while(alias ==false);
     }
 
     }

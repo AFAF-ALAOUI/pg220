@@ -62,11 +62,11 @@ public class Game {
                             fileGame.save("log.txt", "Draw", true);
                             endgame = true;
                             break;
-                        } else {
+                        } /*else {
                             System.out.println("This colomn is full try another");
-                        }
+                        }*/
                     }
-                } catch(HumanPlayIntException | HumanPlayStrException e){
+                } catch(HumanPlayIntException | HumanPlayStrException | FullcolException e){
                     System.out.println(e);
                     i--; //Player will try again
                 }

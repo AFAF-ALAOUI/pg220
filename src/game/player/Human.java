@@ -2,6 +2,7 @@ package game.player;
 
 import game.HumanPlayStrException;
 import game.HumanPlayIntException;
+import game.FullcolException;
 import game.Grid;
 import java.util.Scanner;
 
@@ -27,6 +28,9 @@ public final class Human extends Player{
             col = this.sc.nextInt();
             if(1>col || col>length){ //check if the number is between [1,length]
                 throw new HumanPlayIntException(col);
+            }
+            if(grid.fullColumn(col)){
+                throw new FullcolException(col);
             }
         }
         return col;

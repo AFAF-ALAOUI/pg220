@@ -46,7 +46,14 @@ public class Grid {
 
     }
 
-
+    public boolean fullColumn(int column){
+        for (int i = this.height-1; -1 < i; i--) {
+            if (this.grid[i][column-1] == EMPTY) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     boolean playColumn(int player,int column){
       for (int i = this.height-1; -1 < i; i--) {
