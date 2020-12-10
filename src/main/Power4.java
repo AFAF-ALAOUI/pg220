@@ -20,6 +20,8 @@ public class Power4 {
     }
 
     public static void main(String[] args) {
+        boolean cont =false;
+    do {
         try {
             System.out.println("joueur1?");
             String concurent1 = scannerconc();
@@ -43,9 +45,11 @@ public class Power4 {
                 game.startGame();
             }
 
-        }catch(SetAliasException e){
+        } catch (SetAliasException e) {
             System.out.println(e);
+            cont = true;
         }
+    }while(cont = true);
     }
 
     }
