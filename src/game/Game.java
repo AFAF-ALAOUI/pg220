@@ -1,5 +1,5 @@
 package game;
-import game.player.Player;
+import game.player.*;
 
 
 public class Game {
@@ -10,6 +10,8 @@ public class Game {
     private Player[] players = new Player[2] ;
     private Display display = new Display();
 
+    private FileGame fileGame = new FileGame();
+
     public Game(Player player1, Player player2){
         this.players[0] = player1;
         this.players[1] = player2;
@@ -17,18 +19,21 @@ public class Game {
         this.rules = new Rules();
     }
 
+    public FileGame getFileGame(){
+      return this.fileGame;
+    }
+
 
     public void startGame(){
         int col;
         int [] manches ={0,0}; //initialisation de la table des parties gagnees par les deux joueurs
         boolean endgame = false;
-        FileGame fileGame = new FileGame();
         int j =0;
 
-        fileGame.save("log.txt",this.players[0].serialization(),false);
+        this.fileGame.save("log.txt",this.players[0].serialization(),true);
 
-        fileGame.save("log.txt",this.players[1].serialization(),true);
-        fileGame.save("log.txt","Manche commence ",true);
+        this.fileGame.save("log.txt",this.players[1].serialization(),true);
+        this.fileGame.save("log.txt","Manche commence ",true);
 
         while(endgame==false) {
             for (int i = 0; i < 2; i++) { //(i+manches[0]+manches[1])%2 to altern the  player starting first
@@ -41,17 +46,15 @@ public class Game {
                         if (rules.search4(grid)) {
                             manches[j]++;
                             this.display.display(grid);
-
+                            this.fileGame.save("log.txt", players[j].getName() + " gagne", true);
+                            this.fileGame.save("log.txt", "Score " + manches[0] + "-" + manches[1]+"\n", true);
                             if (manches[j] == 3) {
                                 endgame = true;
                                 break;
                             }
 
                             System.out.println(players[j].getName() + " gagne.Nouvelle manche");
-                            fileGame.save("log.txt", players[j].getName() + " gagne", true);
-                            fileGame.save("log.txt", "Score " + manches[0] + "-" + manches[1], true);
-                            fileGame.save("log.txt", "Manche commence ", true);
-
+                            this.fileGame.save("log.txt", "Manche commence ", true);
                             this.grid.initGrid(this.grid.getHeight(), this.grid.getLength());
 
                             break;
@@ -59,21 +62,28 @@ public class Game {
                     } else {
                         if (grid.fullGrid()) {
                             System.out.println("Match nul");
-                            fileGame.save("log.txt", "Draw", true);
+                            this.fileGame.save("log.txt", "Draw", true);
                             endgame = true;
                             break;
-                        } /*else {
-                            System.out.println("This colomn is full try another");
-                        }*/
+                        }
                     }
-                } catch(HumanPlayIntException | HumanPlayStrException | FullcolException e){
+                } catch(HumanPlayIntException e){
                     System.out.println(e);
+                    this.fileGame.save("log.txt", e.serialization(), true);
+                    i--; //Player will try again
+                } catch(HumanPlayStrException e){
+                    System.out.println(e);
+                    this.fileGame.save("log.txt", e.serialization(), true);
+                    i--; //Player will try again
+                } catch(FullcolException e){
+                    System.out.println(e);
+                    this.fileGame.save("log.txt", e.serialization(), true);
                     i--; //Player will try again
                 }
             }
         }
         System.out.println("Fin de partie");
-        fileGame.save("log.txt","Fin de partie",true);
+        this.fileGame.save("log.txt","Fin de partie",true);
     }
 
 

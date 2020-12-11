@@ -35,7 +35,6 @@ public class Grid {
     }
 
 
-    //
     void initGrid(int height,int length){
         grid = new int[height][length];
         for (int i=0; i<height; i++){

@@ -4,9 +4,12 @@ public class FullcolException extends RuntimeException {
         private int value;
 
         public FullcolException(int value) {
-            super("the colomn : "+value+". is full");
+            super("the column "+value+"  is full");
             this.value = value;
         }
 
-}
+        public String serialization(){
+          return String.format("Erreur colonne pleine %d",this.value);
+        }
 
+}

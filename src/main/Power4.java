@@ -20,43 +20,47 @@ public class Power4 {
     }
 
     public static void main(String[] args) {
-        boolean alias =true;
-        String concurent1 = null;
-        String name1 = null;
-        String concurent2 = null;
-        String name2 = null;
-    do {
-        try {
-            System.out.println("joueur1?");
-            concurent1 = scannerconc();
-            name1 = scanner.next();
-        } catch (SetAliasException e) {
-            System.out.println(e);
+        boolean file = false;
+        String[] concurent = {null,null};
+        String[] name = {null,null};
+        String[] exception = {null,null};
+        Game game = null;
+
+
+        for (int i=0; i < 2; i++){
+          do {
+              try {
+                  System.out.println("joueur"+(i+1)+"?");
+                  concurent[i] = scannerconc();
+              } catch (SetAliasException e) {
+                  System.out.println(e);
+                  exception[i]= e.serialization(i+1);
+              }
+          } while(concurent[i] == null);
+          name[i] = scanner.next();
         }
-    } while(concurent1 == null);
-        do {
-            try {
-                System.out.println("joueur2?");
-                concurent2 = scannerconc();
-                name2 = scanner.next();
-            } catch (SetAliasException e) {
-                System.out.println(e);
-            }
-        }while(concurent2 == null);
 
-            if ((concurent1.equals("human")) && (concurent2.equals("human"))) {
-                Game game = new Game(new Human(name1, 1), new Human(name2, 2));
-                game.startGame();
-            } else if ((concurent1.equals("human")) && (concurent2.equals("ia"))) {
-                Game game = new Game(new Human(name1, 1), new ArtificialIntel(name2, 2));
-                game.startGame();
-            } else if ((concurent1.equals("ia")) && (concurent2.equals("human"))) {
-                Game game = new Game(new ArtificialIntel(name1, 1), new Human(name2, 2));
-                game.startGame();
-            } else if ((concurent1.equals("ia")) && (concurent2.equals("ia"))) {
-                Game game = new Game(new ArtificialIntel(name1, 1), new ArtificialIntel(name2, 2));
-                game.startGame();
-            }
-    }
 
+
+        if ((concurent[0].equals("human")) && (concurent[1].equals("human"))) {
+            game = new Game(new Human(name[0], 1), new Human(name[1], 2));
+       } else if ((concurent[0].equals("human")) && (concurent[1].equals("ia"))) {
+            game = new Game(new Human(name[0], 1), new ArtificialIntel(name[1], 2));
+       } else if ((concurent[0].equals("ia")) && (concurent[1].equals("human"))) {
+            game = new Game(new ArtificialIntel(name[0], 1), new Human(name[1], 2));
+       } else if ((concurent[0].equals("ia")) && (concurent[1].equals("ia"))) {
+            game = new Game(new ArtificialIntel(name[0], 1), new ArtificialIntel(name[1], 2));
+      }
+      for (int i=0; i < 2; i++){
+        if (exception[i] != null){
+          game.getFileGame().save("log.txt",exception[i],file);
+          file = true;
+        }
+      }
+
+      if (!file){
+        game.getFileGame().save("log.txt","",file);
+      }
+      game.startGame();
     }
+}

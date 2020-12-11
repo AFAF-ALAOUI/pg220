@@ -14,7 +14,7 @@ public final class Human extends Player{
         super(name, pawn);
     }
 
-    public final int play(Grid grid) throws HumanPlayIntException, HumanPlayStrException {
+    public final int play(Grid grid) throws HumanPlayIntException, HumanPlayStrException,FullcolException {
         int length = grid.getLength();
         System.out.println(this.getName() + ", choose a column ");
         int col;

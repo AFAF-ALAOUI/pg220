@@ -11,4 +11,8 @@ public class SetAliasException extends Exception{
         super("Alias : "+ str +" is invalid");
         this.str = str;
     }
+
+    public String serialization(int i){
+      return String.format("Erreur saisie joueur %d %s",i, this.str);
+    }
 }

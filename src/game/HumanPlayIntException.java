@@ -8,7 +8,12 @@ public class HumanPlayIntException extends RuntimeException {
     }
 
     public HumanPlayIntException(int value){
-        super("Your input is out of range :"+ value +"It's not allowed");
+        super("Your input is out of range :"+ value +" is not allowed");
         this.value = value;
     }
+
+    public String serialization(){
+      return String.format("Colonne non valide %d",this.value);
+    }
+
 }
