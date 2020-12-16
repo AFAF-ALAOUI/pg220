@@ -40,9 +40,10 @@ public class Game {
                 j=(i+manches[0]+manches[1])%2;
                 this.display.display(grid);
                 try {
-                col = this.players[j].play(grid);
-                fileGame.save("log.txt",this.players[j].getName()+" joue "+col,true);
-                    if (this.grid.playColumn(this.players[j].getPawn(), col)) {
+                  col = this.players[j].play(grid);
+
+                  if (this.grid.playColumn(this.players[j].getPawn(), col)) {
+                        fileGame.save("log.txt",this.players[j].getName()+" joue "+col,true);
                         if (rules.search4(grid)) {
                             manches[j]++;
                             this.display.display(grid);

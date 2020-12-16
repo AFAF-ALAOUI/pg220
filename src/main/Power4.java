@@ -42,11 +42,11 @@ public class Power4 {
 
 
 
-        if ((concurent[0].equals("human")) && (concurent[1].equals("human"))) {
+        if ((concurent[0].equals("humain")) && (concurent[1].equals("humain"))) {
             game = new Game(new Human(name[0], 1), new Human(name[1], 2));
-       } else if ((concurent[0].equals("human")) && (concurent[1].equals("ia"))) {
+       } else if ((concurent[0].equals("humain")) && (concurent[1].equals("ia"))) {
             game = new Game(new Human(name[0], 1), new ArtificialIntel(name[1], 2));
-       } else if ((concurent[0].equals("ia")) && (concurent[1].equals("human"))) {
+       } else if ((concurent[0].equals("ia")) && (concurent[1].equals("humain"))) {
             game = new Game(new ArtificialIntel(name[0], 1), new Human(name[1], 2));
        } else if ((concurent[0].equals("ia")) && (concurent[1].equals("ia"))) {
             game = new Game(new ArtificialIntel(name[0], 1), new ArtificialIntel(name[1], 2));
@@ -63,4 +63,5 @@ public class Power4 {
       }
       game.startGame();
     }
+
 }

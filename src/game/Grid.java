@@ -2,9 +2,7 @@ package game;
 
 public class Grid {
 
-    private final int EMPTY = 0;
-    private final int PLAYER1 = 1;
-    private final int PLAYER2 = 2;
+    private final static int EMPTY = 0;
 
     private int height;
     private int length;
@@ -19,7 +17,7 @@ public class Grid {
     }
     public Grid(int height, int length){
         this.height = height;
-          this.length = length;
+        this.length = length;
         initGrid(height,length);
     }
 
