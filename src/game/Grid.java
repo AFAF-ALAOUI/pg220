@@ -8,7 +8,6 @@ public class Grid {
     private int length;
     private int[][] grid;
 
-
     //const
     public Grid(){
         this.height = 6;

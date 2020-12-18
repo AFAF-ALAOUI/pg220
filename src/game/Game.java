@@ -73,6 +73,10 @@ public class Game {
                     this.fileGame.save("log.txt", e.serialization(), true);
                     i--; //Player will try again
                 } catch(HumanPlayStrException e){
+                    if(e.getString().equals("sortir")){
+                      endgame=true;
+                      break;
+                    }
                     System.out.println(e);
                     this.fileGame.save("log.txt", e.serialization(), true);
                     i--; //Player will try again
